@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot?-2cug5g');
+    src:url('fonts/icomoon.eot?#iefix-2cug5g') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?-2cug5g') format('truetype'),
+    url('fonts/icomoon.woff?-2cug5g') format('woff'),
+    url('fonts/icomoon.svg?-2cug5g#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-circle-right:before {
+    content: "\ea42";
+}
+.icon-circle-left:before {
+    content: "\ea44";
+}
+.icon-clock:before {
+    content: "\e94e";
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #232323;
+    color: antiquewhite;
+}
+
+/* Calendar */
+#calendar {
+    width: 100%;
+    height: 640px;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 0;
+}
+
+#calendar a {
+    text-decoration: none;
+    color: #fdfdfe;
+}
+
+#calendar thead {
+    border: 1px solid #333;
+}
+
+#calendar thead>tr{
+    color: #fdfdfe;
+    background-color: #44535b;
+    font-size: 1.5em;
+    overflow: hidden;
+}
+#calendar thead>tr.days {
+    background-color: #2d3a40;
+    font-size: 1.2em;
+}
+#calendar thead>tr>th .month-name{
+    text-transform: uppercase;
+}
+#calendar thead>tr>th{
+    position: relative;
+}
+#calendar thead>tr>th>a.arrow-prev{
+    float: left;
+    margin: 0 20px;
+    visibility: hidden;
+}
+#calendar thead>tr>th>a.arrow-next{
+    float: right;
+    margin: 0 20px;
+}
+#calendar thead>tr>th>a.arrow:hover{
+    color: #E3F2F9;
+    transition: all ease 0.3s;
+}
+
+#calendar th{
+    width: 14.285%;
+    line-height: 1;
+    padding: 21px 0;
+}
+#calendar th.days{
+    padding: 13px 0;
+}
+
+#calendar td{
+    height: 106px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #DDD;
+
+    font-size: 1.2em;
+}
+
+#calendar td span.number{
+    display: inline-block;
+    border-radius: 25px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+#calendar td.active span.number{
+    background-color: #fff;
+    -moz-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -webkit-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -o-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    box-shadow: 1px 1px 10px 5px #cfcfcf;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=10);
+}
+
+
+/* Les différents états des journées */
+#calendar td.prev-date{
+    background: #F9F9F9 none repeat scroll 0 0;
+    color: #BBB;
+}
+#calendar td.closed{
+    color: #BBB;
+    background: #f0f0f0 none repeat scroll 0 0;
+}
+#calendar td.blur{
+    background: #EEE none repeat scroll 0 0;
+    color: #DDD;
+}
+#calendar td.booked{
+    background: #FFEAE7 none repeat scroll 0 0;
+    color: #F0B1A1;
+}
+#calendar td.today{
+    background: #E3F2F9 none repeat scroll 0 0;
+    color: #000;
+}
+
+#calendar td.available,
+#calendar td.available span.number{
+    cursor: pointer;
+}
+/* Active state */
+#calendar tr.booking-container{
+    display: none;
+}
+#calendar td.active,
+#calendar tr.booking-container>td {
+    background: #DDD none repeat scroll 0 0;
+    padding: 20px;
+}
+#calendar tr.booking-container div.booking-content {
+    background: #ffffff none repeat scroll 0 0;
+    width: 100%;
+    -moz-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -webkit-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -o-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    box-shadow: 1px 1px 10px 5px #cfcfcf;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=10);
+}
+
+/* SLOTS */
+.booking-content{
+    text-align: left;
+}
+
+.booking-content{
+    padding: 30px 35px 10px;
+}
+
+.booking-content h2{
+    margin: 0 0 20px;
+    font-weight: 700;
+    color: #555;
+    font-size: 20px;
+}
+
+.booking-content .timeslot{
+    box-sizing: border-box;
+    color: #888;
+    border-top: 1px solid #DDD;
+    overflow: hidden;
+    line-height: 1.8;
+    transition: all 0.1s ease-out 0s;
+}
+.booking-content .timeslot:hover{
+    background: #F9F9F9 none repeat scroll 0 0;
+}
+.booking-content .timeslot .timeslot-time{
+    float: left;
+    width: 30%;
+    padding: 13px 0 13px 15px;
+    font-weight: 600;
+    color: #555;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.booking-content .timeslot .timeslot-count{
+    float: left;
+    padding: 13px 0 13px 15px;
+    border-left: 1px solid #DDD;
+    width: 40%;
+}
+.booking-content .timeslot .timeslot-count>.slot-available{
+    text-transform: uppercase;
+    font-size: 11px;
+    display: block;
+    line-height: 2.7;
+    color: #AAA;
+}
+.booking-content .timeslot .timeslot-action{
+    float: right;
+    text-align:right;
+    width: 30%;
+    padding: 10px 10px 10px 0px;
+    /*border-left: 1px solid #DDD;*/
+}
+
+/* BOUTON */
+.btn {
+    cursor: pointer;
+    font-family: "Open Sans",sans-serif;
+
+    height: auto;
+
+    display: inline-block;
+    padding: 0 12px;
+
+    line-height: 32px;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    box-shadow: none;
+    border-radius: 3px;
+    color: #FFF;
+    border: 1px solid;
+
+    margin: 0px 0px 0px 10px;
+    transition: all 0.1s ease-out 0s;
+}
+
+.btn.btn-available {
+    background: #56C477 none repeat scroll 0 0;
+}
+.btn.btn-available:hover {
+    border-color: #44535B !important;
+    background: #44535B none repeat scroll 0% 0% !important;
+}
+.btn.btn-full {
+    cursor: default !important;
+    background: #EEE none repeat scroll 0 0 !important;
+    border-color: #DDD !important;
+    color: #AAA !important;
+}
+
+/* LOADER CSS3 */
+.loader {
+    display: inline-block;
+    box-sizing: content-box;
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+    vertical-align: middle;
+    border-radius: 30px;
+    border: 6px solid #ccc;
+}
+.loader:after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 6px solid transparent;
+    border-top-color: #FFF;
+    animation: spin 1s ease 0s infinite;
+}
+
+@keyframes spin {
+    0%{ transform: rotate(0deg);}
+    100%{ transform: rotate(360deg);}
+}
