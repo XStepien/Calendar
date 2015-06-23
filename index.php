@@ -6,6 +6,7 @@ include('calendar.php');
 <head lang="fr">
     <meta charset="UTF-8">
     <title>PHP/Jquery Calendar</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="calendar.css"/>
 </head>
 <body>

@@ -58,6 +58,7 @@ header {
 
 /* Calendar */
 #calendar {
+    font-family: 'Montserrat', sans-serif;
     width: 100%;
     height: 640px;
     border-collapse:collapse;
@@ -194,6 +195,7 @@ header {
 
 /* SLOTS */
 .booking-content{
+    font-family: 'Open Sans', sans-serif;
     text-align: left;
 }
 
@@ -252,8 +254,7 @@ header {
 /* BOUTON */
 .btn {
     cursor: pointer;
-    font-family: "Open Sans",sans-serif;
-
+    
     height: auto;
 
     display: inline-block;
