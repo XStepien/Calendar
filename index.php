@@ -52,7 +52,7 @@ include('calendar.php');
         </div>
     </section>
 
-    <div class="md-modal md-effect-8" id="modal-1">
+    <div class="md-modal md-effect-14" id="modal-1">
         <div class="md-content">
             <h3>Demande de rendez-vous</h3>
             <p class="recap">

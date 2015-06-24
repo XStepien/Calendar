@@ -17,10 +17,8 @@ function draw_calendar($month,$year)
     $day_counter = 0;
     $dates_array = array();
 
-    /* row for week one */
     $calendar.= '<tr class="week">';
 
-    /* print "blank" days until the first of the current week */
     if($running_day < 8)
     {
         for($x = 1; $x < $running_day; $x++):
@@ -30,10 +28,7 @@ function draw_calendar($month,$year)
         endfor;
     }
 
-    /* keep going with days.... */
     for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-        /** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
-
 
         $class = (strtotime($year.'-'.$month.'-'.$list_day) < strtotime('now -1 DAY'))? 'prev-date': 'available';
         $class.= ($today == $list_day.'-'.$month.'-'.$year)? ' today' : '';
@@ -45,12 +40,9 @@ function draw_calendar($month,$year)
         $date_string = $year.'-'.$month.'-'.$list_day;
 
         $calendar.= "<td data-date='$date_string' class='$class'>";
-
-        /* add in the day number */
         $calendar.= '<span class="number">'.$list_day.'</span>';
-
-
         $calendar.= '</td>';
+
         if($running_day == 7):
             $calendar.= '</tr>';
             if(($day_counter+1) != $days_in_month):
@@ -83,11 +75,11 @@ function show_slots($currentDate)
 
     foreach($creneaux as $key => $value){
 
-        $count= $pdo->prepare("SELECT COUNT(*) FROM rendezvous WHERE  rdvHeure = :heure AND rdvDate = :currentdate");
+        $count= $pdo->prepare("SELECT COUNT(*) FROM rendezvous WHERE rdvHeure = :heure AND rdvDate = :currentdate");
         $count->execute(array('heure' => $key,'currentdate' => $currentDate));
         $count = $count->fetchColumn();
 
-        $nbDispo = 4 - $count;
+        $nbDispo = 3 - $count;
 
         $slots.= '<div class="timeslot">';
 
