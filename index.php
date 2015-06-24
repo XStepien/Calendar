@@ -13,7 +13,7 @@ include('calendar.php');
 <body>
     <header>
         <div class="container">
-            <h1>PHP/Jquery Calendar <small>By Blondin</small></h1>
+            <h1><i class="icon-calendar"></i> PHP/Jquery Calendar <small>By Blondin</small></h1>
         </div>
     </header>
     <section>
@@ -25,7 +25,9 @@ include('calendar.php');
                             <a href="#" class="arrow arrow-prev">
                                 <span class="icon-circle-left"></span>
                             </a>
-                            <span class="month-name" data-date="<?=$current_month.'-'.$current_year?>"><?=$month_names[$current_month].' '.$current_year?></span>
+                            <span class="month-name" data-date="<?=$current_month.'-'.$current_year?>">
+                                <?=$month_names[$current_month].' '.$current_year?>
+                            </span>
                             <a href="#" class="arrow arrow-next">
                                 <span class="icon-circle-right"></span>
                             </a>
@@ -54,7 +56,7 @@ include('calendar.php');
         <div class="md-content">
             <h3>Demande de rendez-vous</h3>
             <p class="recap">
-                <span class="recap-date"><i class="icon-clock"></i> Jeudi 25 Juin 2015</span>
+                <span class="recap-date"><i class="icon-calendar"></i> Jeudi 25 Juin 2015</span>
                 <span class="recap-heure"><i class="icon-clock"></i> 9h00 - 9h20</span>
             </p>
             <div class="rdv-form">
