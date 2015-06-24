@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icomoon.eot?-2cug5g');
-    src:url('fonts/icomoon.eot?#iefix-2cug5g') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?-2cug5g') format('truetype'),
-    url('fonts/icomoon.woff?-2cug5g') format('woff'),
-    url('fonts/icomoon.svg?-2cug5g#icomoon') format('svg');
+    src:url('../fonts/icomoon.eot?-2cug5g');
+    src:url('../fonts/icomoon.eot?#iefix-2cug5g') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?-2cug5g') format('truetype'),
+    url('../fonts/icomoon.woff?-2cug5g') format('woff'),
+    url('../fonts/icomoon.svg?-2cug5g#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -52,8 +52,23 @@ html, body {
 }
 
 header {
-    background-color: #232323;
-    color: antiquewhite;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2D3A40;
+    color: #FDFDFE;
+    margin-bottom: 30px;
+    -moz-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -webkit-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    -o-box-shadow: 1px 1px 10px 5px #cfcfcf;
+    box-shadow: 1px 1px 10px 5px #cfcfcf;
+}
+
+header h1 {
+    padding: 20px 0;
+    margin: 0;
+}
+header h1 small {
+    font-weight: 100;
+    font-size: 0.5em;
 }
 
 /* Calendar */
@@ -64,6 +79,7 @@ header {
     border-collapse:collapse;
     border-spacing: 0;
     padding: 0;
+    margin-bottom: 30px;
 }
 
 #calendar a {
@@ -254,29 +270,32 @@ header {
 /* BOUTON */
 .btn {
     cursor: pointer;
-    
     height: auto;
-
     display: inline-block;
     padding: 0 12px;
-
     line-height: 32px;
     text-transform: uppercase;
     font-size: 12px;
-
     box-shadow: none;
     border-radius: 3px;
     color: #FFF;
     border: 1px solid;
-
-    margin: 0px 0px 0px 10px;
+    margin: 0 0 0 10px;
     transition: all 0.1s ease-out 0s;
+}
+
+.btn-close{
+    color: #576166;
+    border-color: #E9E9E9;
+    background: #E9E9E9 none repeat scroll 0 0;
 }
 
 .btn.btn-available {
     background: #56C477 none repeat scroll 0 0;
 }
-.btn.btn-available:hover {
+.btn.btn-available:hover,
+.btn-close:hover {
+    color: #fff;
     border-color: #44535B !important;
     background: #44535B none repeat scroll 0% 0% !important;
 }

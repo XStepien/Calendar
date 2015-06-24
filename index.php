@@ -7,7 +7,8 @@ include('calendar.php');
     <meta charset="UTF-8">
     <title>PHP/Jquery Calendar</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="calendar.css"/>
+    <link rel="stylesheet" href="css/calendar.css"/>
+    <link rel="stylesheet" href="css/modal.css"/>
 </head>
 <body>
     <header>
@@ -49,9 +50,44 @@ include('calendar.php');
         </div>
     </section>
 
+    <div class="md-modal md-effect-8" id="modal-1">
+        <div class="md-content">
+            <h3>Demande de rendez-vous</h3>
+            <p class="recap">
+                <span class="recap-date"><i class="icon-clock"></i> Jeudi 25 Juin 2015</span>
+                <span class="recap-heure"><i class="icon-clock"></i> 9h00 - 9h20</span>
+            </p>
+            <div class="rdv-form">
+                <form action="" method="POST">
+                    <div class="field">
+                        <input type="text" placeholder="Nom..."/>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Prénom..."/>
+                    </div>
+                    <div class="field">
+                        <input type="email" placeholder="Email..."/>
+                    </div>
+                    <div class="field">
+                        <input type="tel" placeholder="Téléphone..."/>
+                    </div>
+                    <div class="field field-block">
+                        <label for="text-area">Un message</label>
+                        <textarea id="text-area"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <button class="md-close btn btn-close" onclick="$('#modal-1').removeClass('md-show');">Annuler</button>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+
+
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="//cdn.jsdelivr.net/jquery.scrollto/2.1.0/jquery.scrollTo.min.js"></script>
-    <script src="calendar.js"></script>
+    <script src="js/calendar.js"></script>
     <script>
         $(document).ready(function() {
             $('#calendar').calendar();

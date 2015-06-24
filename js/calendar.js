@@ -94,6 +94,11 @@ $(document).ready(function() {
             }).always(function(){
                 $calBody.css('opacity', 1);
             });
+        }).on('click', '.btn-available', function(event){
+            event.preventDefault();
+            var $this = $(event.currentTarget);
+
+            $('#modal-1').addClass('md-show');
         });
 
     }
