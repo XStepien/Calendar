@@ -35,6 +35,9 @@
 .icon-calendar:before {
     content: "\e953";
 }
+.icon-cross:before {
+    content: "\ea0f";
+}
 
 * {
     box-sizing: border-box;
@@ -113,7 +116,6 @@ header h1 small {
 #calendar thead>tr>th>a.arrow-prev{
     float: left;
     margin: 0 20px;
-    visibility: hidden;
 }
 #calendar thead>tr>th>a.arrow-next{
     float: right;
@@ -193,6 +195,10 @@ header h1 small {
 #calendar td.available span.number{
     cursor: pointer;
 }
+#calendar td.available:not(.active):hover{
+    background: #cbf9c9 none repeat scroll 0 0;
+}
+
 /* Active state */
 #calendar tr.booking-container{
     display: none;
@@ -266,7 +272,7 @@ header h1 small {
     float: right;
     text-align:right;
     width: 30%;
-    padding: 10px 10px 10px 0px;
+    padding: 10px 10px 10px 0;
     /*border-left: 1px solid #DDD;*/
 }
 

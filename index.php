@@ -1,5 +1,8 @@
 <?php
-include('calendar.php');
+//include('calendar.php');
+include('class/calendar.php');
+
+$calendar = new Calendar();
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,48 +22,23 @@ include('calendar.php');
     <section>
         <div class="container">
             <table id="calendar">
-                <thead>
-                    <tr>
-                        <th colspan="7">
-                            <a href="#" class="arrow arrow-prev">
-                                <span class="icon-circle-left"></span>
-                            </a>
-                            <span class="month-name" data-date="<?=$current_month.'-'.$current_year?>">
-                                <?=$month_names[$current_month].' '.$current_year?>
-                            </span>
-                            <a href="#" class="arrow arrow-next">
-                                <span class="icon-circle-right"></span>
-                            </a>
-                        </th>
-                    </tr>
-                    <tr class="days">
-                        <th>Lun</th>
-                        <th>Mar</th>
-                        <th>Mer</th>
-                        <th>Jeu</th>
-                        <th>Ven</th>
-                        <th>Sam</th>
-                        <th>Dim</th>
-                    </tr>
-                </thead>
-                <tbody id="calendar-body">
-                    <?php
-                    echo draw_calendar(6,2015);
-                    ?>
-                </tbody>
+                <?php
+                    echo $calendar->draw_calendar();
+                ?>
             </table>
         </div>
     </section>
 
-    <div class="md-modal md-effect-14" id="modal-1">
+    <div class="md-modal md-effect-1" id="modal-1">
         <div class="md-content">
+            <button type="button" class="md-close" aria-label="Close" onclick="$('#modal-1').removeClass('md-show');"><span class="icon-cross"></span></button>
             <h3>Demande de rendez-vous</h3>
             <p class="recap">
                 <span class="recap-date"><i class="icon-calendar"></i> Jeudi 25 Juin 2015</span>
                 <span class="recap-heure"><i class="icon-clock"></i> 9h00 - 9h20</span>
             </p>
-            <div class="rdv-form">
-                <form action="" method="POST">
+            <div class="rdv-form-wrapper">
+                <form action="" method="POST" id="rdv-form">
                     <div class="field">
                         <input type="text" placeholder="Nom..."/>
                     </div>
@@ -74,13 +52,14 @@ include('calendar.php');
                         <input type="tel" placeholder="Téléphone..."/>
                     </div>
                     <div class="field field-block">
-                        <label for="text-area">Un message</label>
+                        <label for="text-area">Laissez moi un message</label>
                         <textarea id="text-area"></textarea>
                     </div>
                 </form>
             </div>
 
-            <button class="md-close btn btn-close" onclick="$('#modal-1').removeClass('md-show');">Annuler</button>
+            <button class="btn btn-close" onclick="$('#modal-1').removeClass('md-show');">Annuler</button>
+            <button class="btn btn-available" onclick="$('#rdv-form').submit();">Envoyer</button>
         </div>
     </div>
 

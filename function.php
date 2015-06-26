@@ -11,7 +11,6 @@ function draw_calendar($month,$year)
     $today = date('j-n-Y');
 
     $running_day = date('N',$date);
-
     $days_in_month = date('t',$date);
     $days_in_this_week = 1;
     $day_counter = 0;
@@ -33,6 +32,7 @@ function draw_calendar($month,$year)
         $class = (strtotime($year.'-'.$month.'-'.$list_day) < strtotime('now -1 DAY'))? 'prev-date': 'available';
         $class.= ($today == $list_day.'-'.$month.'-'.$year)? ' today' : '';
 
+        // voir avec un array 'jour de fermeture'
         if($running_day>5){
             $class = 'prev-date';
         }
@@ -54,14 +54,12 @@ function draw_calendar($month,$year)
         $days_in_this_week++; $running_day++; $day_counter++;
     endfor;
 
-    /* finish the rest of the days in the week */
     if($days_in_this_week < 8):
         for($x = 1; $x <= (8 - $days_in_this_week); $x++):
             $calendar.= '<td class="blur">'.$x.'</td>';
         endfor;
     endif;
 
-    /* final row */
     $calendar.= '</tr>';
 
     return $calendar;

@@ -1,5 +1,6 @@
 /* MODAL */
 .md-modal {
+    font-family: 'Montserrat', sans-serif;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -17,6 +18,20 @@
     -moz-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
+}
+
+.md-close{
+    position: absolute;
+    top:30px;right:30px;
+    border: 0 none;
+    background: transparent;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
+.md-close:hover{
+    color:darkred;
 }
 
 .md-show {
@@ -65,11 +80,16 @@
     padding: 30px;
 }
 
+.md-content .btn-available {
+    float: right;
+}
+
 .md-content h3 {
     margin: 0;
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
+    opacity: 0.8;
 }
 
 .md-content > p.recap {
@@ -78,7 +98,7 @@
 .md-content > p.recap span {
     margin-right: 15px;
 }
-.md-content .rdv-form {
+.md-content .rdv-form-wrapper {
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-color: #DDD;
@@ -86,19 +106,20 @@
     overflow: hidden;
     margin-bottom: 15px;
 }
-.md-content .rdv-form .field {
+.md-content .rdv-form-wrapper .field {
     box-sizing: border-box;
     width: 50%;
     float: left;
     font-size: 13px;
     padding: 7px 10px;
 }
-.md-content .rdv-form .field.field-block{
+.md-content .rdv-form-wrapper .field.field-block{
     width: 100%;
 }
 
-.md-content .rdv-form .field input,
-.md-content .rdv-form .field textarea{
+.md-content .rdv-form-wrapper .field input,
+.md-content .rdv-form-wrapper .field textarea{
+    font-family: 'open sans', sans-serif;
     width: 100%;
     border: 1px solid #CCC;
     border-radius: 3px;

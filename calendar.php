@@ -32,13 +32,13 @@ $creneaux = array(
 
 include('connexion.php');
 include('function.php');
+include('class/calendar.php');
 
 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) {
 
     if(isset($_POST['param1']) && isset($_POST['currentdate'])){
 
         $currentDate = explode('-', $_POST['currentdate']);
-
         $current_month = $currentDate[0];
         $current_year = $currentDate[1];
 
@@ -57,19 +57,11 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
             $current_year--;
         }
 
-        $allow_prev = false;
-        if(date($current_month.'-'.$current_year) != date('n-Y')){
-            $allow_prev = true;
-        }
+        $calendar = new Calendar($current_month,$current_year);
 
-        $retVal = array(
-            'data-date' => $current_month.'-'.$current_year,
-            'date-string' => $month_names[$current_month].' '.$current_year,
-            'html' => draw_calendar($current_month,$current_year),
-            'allowprev' => $allow_prev
-        );
+        $retVal = $calendar->draw_calendar();
 
-        echo json_encode($retVal);
+        echo $retVal;
     }
 
     if(isset($_POST['param2']) && isset($_POST['currentdate'])){

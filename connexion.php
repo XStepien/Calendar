@@ -7,9 +7,3 @@ try{
     echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
     die();
 }
-//echo '<pre>';
-//$stmt = $pdo->prepare("SELECT * FROM rendezvous WHERE id = :id");
-//$stmt->execute(array('id' => 1));
-//$result = $stmt->fetchAll();
-//print_r($result);
-//echo '</pre>';

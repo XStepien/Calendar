@@ -40,8 +40,6 @@ $(document).ready(function() {
                 var $booking = $('<tr><td colspan="7">').insertAfter($currentTr).addClass('booking-container');
                 $booking.show('slow');
 
-
-
                 var $booking_content = $('<div>').addClass('booking-content').appendTo($booking.find('td')).hide();
                 $('<span>').addClass('loader').appendTo($booking.find('td'));
 
@@ -63,37 +61,23 @@ $(document).ready(function() {
         }).on('click', '.arrow', function(event){
             event.preventDefault();
             var $this = $(event.currentTarget);
-            console.log($this.attr('class'));
-
             var currentDate = $calendar.find('.month-name').data('date');
             var addValue = ($this.hasClass('arrow-next')) ? 1 : -1;
 
-            var $calBody = $calendar.find('tbody');
-            $calBody.css('opacity', 0.4);
-
-            $calendar.find('.arrow-prev').css('visibility', 'hidden');
+            $calendar.css('opacity', 0.4);
 
             $.ajax({
                 method: "POST",
                 url: 'calendar.php',
                 data: { param1: addValue, currentdate: currentDate }
             }).done(function(data){
-                var dataArray = jQuery.parseJSON(data);
-
-                if(dataArray['allowprev'] == true){
-                    $calendar.find('.arrow-prev').css('visibility', 'visible');
-                }else{
-                    $calendar.find('.arrow-prev').css('visibility', 'hidden');
-                }
-
-                $calBody.html(dataArray['html']);
-                $calendar.find('.month-name').html(dataArray['date-string']).data('date', dataArray['data-date']);
-
+                $calendar.html(data);
             }).fail(function(){
                 console.log('fail');
             }).always(function(){
-                $calBody.css('opacity', 1);
+                $calendar.css('opacity', 1);
             });
+
         }).on('click', '.btn-available', function(event){
             event.preventDefault();
             var $this = $(event.currentTarget);
