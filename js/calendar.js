@@ -48,12 +48,13 @@ $(document).ready(function() {
                     url: 'calendar.php',
                     data: { param2: 'creneau', currentdate: selectedDate }
                 }).done(function(data){
-                    $booking_content.html(data).fadeIn();
+                    $booking_content.html(data);
                     $(window).scrollTo($("#slots-title"),500, {offset : -100});
                 }).fail(function(){
                     $('<p>').html('Une erreur c\'est produite...').appendTo($booking_content);
                 }).always(function(){
                     $booking.find('.loader').remove();
+                    $booking_content.fadeIn();
                 });
 
             }

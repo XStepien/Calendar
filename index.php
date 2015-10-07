@@ -40,20 +40,20 @@ $calendar = new Calendar();
             <div class="rdv-form-wrapper">
                 <form action="" method="POST" id="rdv-form">
                     <div class="field">
-                        <input type="text" placeholder="Nom..."/>
+                        <input type="text" name="lastname" placeholder="Nom..."/>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Prénom..."/>
+                        <input type="text" name="firstname" placeholder="Prénom..."/>
                     </div>
                     <div class="field">
-                        <input type="email" placeholder="Email..."/>
+                        <input type="email" name="email" placeholder="Email..."/>
                     </div>
                     <div class="field">
-                        <input type="tel" placeholder="Téléphone..."/>
+                        <input type="tel" name="phone" placeholder="Téléphone..."/>
                     </div>
                     <div class="field field-block">
                         <label for="text-area">Laissez moi un message</label>
-                        <textarea id="text-area"></textarea>
+                        <textarea id="text-area" name="content"></textarea>
                     </div>
                 </form>
             </div>
